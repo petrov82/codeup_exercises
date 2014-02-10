@@ -22,9 +22,9 @@ $books = array(
         'pages' => 544
     ),
     'Code of Hammurabi' => array(
-    	'published' => -1772,
+    	'published' => 1772 . ' ' . "B.C.",
     	'author' => 'Hammurabi',
-    	'pages' => 4
+    	'pages' => 4 . ' ' . "large"
     ),
     'Down and Out in the Magic Kingdom' => array(
     	'published' => 2003,
@@ -53,10 +53,12 @@ $books = array(
 //Update your loop to only show books that were written after 1950.
 foreach ($books as $title => $book) {
 
-	if ($book['published'] <= 1950) {
+	//if ($book['published'] <= 1950) {
 	echo "{$title} was written in {$book['published']}, by {$book['author']}, and has {$book['pages']} pages\n";
 	echo '*' . PHP_EOL;
-	}
+	//}
+
+	// echo $title . "\n";
 	
 }
 ?>
