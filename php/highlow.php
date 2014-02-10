@@ -28,6 +28,9 @@ if (($argc != 3) || !is_numeric($argv[1]) || !is_numeric($argv[2]) || ($argv[1] 
 	$minimum = $argv[1];
 	$maximum = $argv[2];
 
+	intval($minimum) [$base = 0]);
+	intval($maximum) [$base = 0]);
+
 // The specs for the game are:
 	do {
 		// - game picks a random number between 1 and 100.
