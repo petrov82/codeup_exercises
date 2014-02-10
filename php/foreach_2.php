@@ -39,7 +39,7 @@ $books = array(
     'Thompson Chain-Reference Bible' => array(
     	'published' => 1908,
     	'author' => 'Frank C. Thompson',
-    	'pages' => null
+    	'pages' => 1256
     ),
     'Ivanhoe' => array(
     	'published' => 1820,
