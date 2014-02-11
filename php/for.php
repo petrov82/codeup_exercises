@@ -1,15 +1,15 @@
 // <?php
 
-// Prompt user for a starting number and ending number,
+Prompt user for a starting number and ending number,
 
-// $prompt_one = <<<PROMPT
-// Give me two numbers (any numbers),
-// one lower and the other higher,
-// so I can count through that number set: 
-// PROMPT;
+$prompt_one = <<<PROMPT
+Give me two numbers (any numbers),
+one lower and the other higher,
+so I can count through that number set: 
+PROMPT;
 
 
-// fwrite(STDIN, $prompt_one);
+fwrite(STDIN, $prompt_one);
 
 $number_start = 0;
 $number_end = 0x100;
