@@ -14,7 +14,10 @@ $items = array();
 do {
     // Iterate through list items
     foreach ($items as $key => $item) {
-        // Display each item and a newline
+       
+        $key++;
+            
+        // Display each item and a newlines
         echo "[{$key}] {$item}\n";
     }
 
@@ -23,7 +26,7 @@ do {
 
     // Get the input from user
     // Use trim() to remove whitespace and newlines
-    $input = trim(fgets(STDIN));
+    $input = strtoupper(trim(fgets(STDIN)));
 
     // Check for actionable input
     if ($input == 'N') {
@@ -36,8 +39,11 @@ do {
         echo 'Enter item number to remove: ';
         // Get array key
         $key = trim(fgets(STDIN));
+            $key--;
         // Remove from array
         unset($items[$key]);
+            $key--;
+
     }
 // Exit when input is (Q)uit
 } while ($input != 'Q');
