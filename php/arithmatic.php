@@ -16,37 +16,70 @@
 
 
 function add($a, $b) {
-	echo "$a + $b = "; 
-	echo $a + $b . PHP_EOL;
+	if ((!is_numeric($a)) || (!is_numeric($b))) {
+		echo "I'm sorry, but you didn't give me a number in one of the options. Please try again\n";
+	} else {
+		echo "$a + $b = "; 
+		echo $a + $b . PHP_EOL;
+	}
 }
 
-add(5, 4);
+add('doobie', 4);
+
 
 function subtract($a, $b) {
-	echo "$a - $b = "; 
-	echo $a - $b . PHP_EOL;
+	if ((!is_numeric($a)) || (!is_numeric($b))) {
+		echo "I'm sorry, but you didn't give me a number in one of the options. Please try again\n";
+	} else {
+		echo "$a - $b = "; 
+		echo $a - $b . PHP_EOL;
+	}
 }
 
 subtract(5, 4);
 
+
 function multiply($a, $b) {
-	echo "$a * $b = "; 
-	echo $a * $b . PHP_EOL;
+	if (!is_numeric($a)) {
+		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
+
+	} elseif (!is_numeric($b)) {
+			echo "I'm sorry, but {$b} isn't a number. Please try again.\n";
+		} 
+
+	else {
+		echo "$a * $b = "; 
+		echo $a * $b . PHP_EOL;
+	}
 }
 
 multiply(5, 4);
 
+
 function divide($a, $b) {
-	echo "$a / $b = "; 
-	echo $a / $b . PHP_EOL;
+	if ((!is_numeric($a)) || (!is_numeric($b))) {
+		echo "I'm sorry, but you didn't give me a number in one of the options. Please try again\n";
+	} elseif ($b === 0) {
+			echo "I'm sorry, but, like your 8th grade algebra teacher would say, \"You cannot divide by zero.\"\n";
+		} else {
+		echo "$a + $b = "; 
+		echo $a + $b . PHP_EOL;
+	}
 }
 
-divide(5, 4);
+divide(12, 00);
+
 
 function modulus($a, $b) {
-	echo "$a % $b = "; 
-	echo $a % $b . PHP_EOL;
+	if ((!is_numeric($a)) || (!is_numeric($b))) {
+		echo "I'm sorry, but you didn't give me a number in one of the options. Please try again\n";
+	} else {
+		echo "$a + $b = "; 
+		echo $a + $b . PHP_EOL;
+	}
 }
 
 modulus(5, 4);
+
+
 ?>
