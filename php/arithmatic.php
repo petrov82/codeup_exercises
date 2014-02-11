@@ -14,90 +14,104 @@
 
 // Refactor the error messages into their own function, have the other functions use it for error messaging.
 
+function is_a_number($a, $b) {
+	if (!is_numeric($a) || !is_numeric($b)) {
 
-function add($a, $b) {
-	if (!is_numeric($a)) {
-		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
+		echo "One of the parameters won't work. Try again.\n";
+		var_dump($a, $b);
 
-	} elseif (!is_numeric($b)) {
-			echo "I'm sorry, but {$b} isn't a number. Please try again.\n";
-		} 
+	} else {
 
-	else {
-		echo "$a + $b = "; 
-		echo $a + $b . PHP_EOL;
+		return TRUE;
+	}
+
+}
+
+function divide_by_zero($a, $b) {
+	if ($b == 0) {
+
+		echo "You cannot divide by zero. Try again.\n";
+		var_dump($a, $b);
+
+	} else {
+		
+		return TRUE;
 	}
 }
 
-add(5, 4);
+function add($a, $b) {
+
+	if (is_a_number($a, $b)) {
+
+	return $a + $b . PHP_EOL;
+
+	} else {
+
+		echo "Sorry.\n";
+	}
+}
+
+echo add('Hello', 4);
 
 
 function subtract($a, $b) {
-	if (!is_numeric($a)) {
-		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
 
-	} elseif (!is_numeric($b)) {
-			echo "I'm sorry, but {$b} isn't a number. Please try again.\n";
-		} 
+	if (is_a_number($a, $b)) {
 
-	else {
-		echo "$a - $b = "; 
-		echo $a - $b . PHP_EOL;
+	return $a - $b . PHP_EOL;
+
+	} else {
+
+		echo "Sorry.\n";
 	}
 }
 
-subtract(5, 4);
+echo subtract(5, 4);
 
 
 function multiply($a, $b) {
-	if (!is_numeric($a)) {
-		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
 
-	} elseif (!is_numeric($b)) {
-			echo "I'm sorry, but {$b} isn't a number. Please try again.\n";
-		} 
+	if (is_a_number($a, $b)) {
 
-	else {
-		echo "$a * $b = "; 
-		echo $a * $b . PHP_EOL;
+	return $a * $b . PHP_EOL;
+
+	} else {
+
+		echo "Sorry.\n";
 	}
 }
 
-multiply(5, 4);
+echo multiply(5, 4);
 
 
 function divide($a, $b) {
-	if (!is_numeric($a)) {
-		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
+	
+	if (is_a_number($a, $b)) {
 
-	} elseif ((!is_numeric($b)) || ($b === 0)) {
-			echo "I'm sorry, but {$b} won't work. Please try again.\n";
-		} 
+	return $a / $b . PHP_EOL;
 
-	else {
-		echo "$a / $b = "; 
-		echo $a / $b . PHP_EOL;
+	} else {
+
+		echo "Sorry.\n";
 	}
 }
 
-divide('Mike', 0);
+echo divide('Mike', 10);
 
 
 function modulus($a, $b) {
-	if (!is_numeric($a)) {
-		echo "I'm sorry, but {$a} isn't a number. Please try again.\n";
+	
+	if (is_a_number($a, $b)) {
 
-	} elseif (!is_numeric($b)) {
-			echo "I'm sorry, but {$b} isn't a number. Please try again.\n";
-		} 
+	return $a % $b . PHP_EOL;
 
-	else {
-		echo "$a % $b = "; 
-		echo $a % $b . PHP_EOL;
+	} else {
+
+		echo "Sorry.\n";
 	}
 }
 
-modulus(5, 4);
+echo modulus(5, 4);
 
 
 ?>
