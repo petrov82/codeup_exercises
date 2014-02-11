@@ -15,10 +15,10 @@ do {
     // Iterate through list items
     foreach ($items as $key => $item) {
        
-        $key++;
+        $key2 = $key++;
             
         // Display each item and a newlines
-        echo "[{$key}] {$item}\n";
+        echo "[{$key2}] {$item}\n";
     }
 
     // Show the menu options
