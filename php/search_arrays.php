@@ -13,7 +13,7 @@ function compareArray($array1, $array2) {
 
 }
 
-$query = 'Mike';
+$query = 'Tina';
 
 $result = array_search($query, $premium_users);
 
