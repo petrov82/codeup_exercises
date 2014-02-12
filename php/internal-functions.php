@@ -1,39 +1,63 @@
 <?php
 
-$nothing = rand(0x1, 0xFF);
-$something = '';
+$foo = rand(0x0, 0x100);
+$bar = '';
 $array = array(1,2,3);
 
-//Before the first conditional, unset($nothing). What happens? PHP Notices 
- //unset($nothing);
+//Before the first conditional, unset($foo). What happens? PHP Notices 
+ //unset($foo);
 //Create a funciton that checks if a variable is set or empty, and display "$variable_name is SET|EMPTY"
 function set_or_empty($checkvar) {
-	if (!isset($checkvar)){
-		return FALSE;
-	}	elseif (empty($checkvar)) {
-		return FALSE;
-	} else {
+	if (isset($checkvar)) {
+
 		return TRUE;
 	}
-}
-// TEST: If var $nothing is set, display '$nothing is SET'
-// TEST: If var $something is set, display '$something is SET'
-if (set_or_empty($nothing)) {
 
-	echo "\$nothing ({$nothing}) is a SET\n";
+	if (!empty($checkvar)) {
+		return TRUE;
+	}
+
+	elseif (isset($checkvar) && (empty($checkvar))) {
+		# code...
+	} else {
+
+		return FALSE;
+	}
+}
+// TEST: If var $foo is set, display '$foo is SET'
+if (set_or_empty($foo)) {
+
+	echo "\$foo ({$foo}) is a SET\n";
 
 } else {
 
-	echo "\$nothing ({$nothing}) is not a SET\n";
+	echo "\$foo ({$foo}) is NOT a SET\n";
 }
-// TEST: If var $nothing is empty, display '$nothing is EMPTY'
-// TEST: If var $something is empty, display '$something is EMPTY'
-if (set_or_empty($nothing)) {
+// TEST: If var $foo is empty, display '$foo is EMPTY'
+if (set_or_empty($foo)) {
 
-	echo "\$nothing ({$nothing}) is not EMPTY\n";
+	echo "\$foo ({$foo}) is NOT EMPTY\n";
 
 } else {
-	echo "\$nothing ({$nothing}) is EMPTY\n";
+	echo "\$foo ({$foo}) is EMPTY\n";
+}
+
+// TEST: If var $bar is set, display '$bar is SET'
+if (set_or_empty($bar)) {
+
+	echo "\$bar ({$bar}) is a SET\n";
+
+} else {
+
+	echo "\$bar ({$bar}) is NOT a SET\n";
+}
+// TEST: If var $bar is empty, display '$bar is EMPTY'
+if (set_or_empty($bar)) {
+
+	echo "\$bar ({$bar}) is NOT EMPTY\n";
+
+} else {
+	echo "\$bar ({$bar}) is EMPTY\n";
 }
 
 // Serialize the array $array, and output the results
@@ -49,16 +73,16 @@ var_dump($d_array);
 print_r($d_array);
 foreach ($d_array as $number => $value) {
 	
-	if (is_array($d_array)) {
-		foreach ($d_array as $number) {
+	// if (is_array($d_array)) {
+	// 	foreach ($d_array as $number) {
 			echo "[{$number}] $value\n";
-		}
-	}
+	// 	}
+	// }
 
 		
-	else {
-			echo FALSE . PHP_EOL;
-			}
+	// else {
+	// 		echo FALSE . PHP_EOL;
+	// 		}
 }
 
 
