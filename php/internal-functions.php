@@ -1,10 +1,12 @@
 <?php
 
-$nothing = 0xFF;
+$nothing = rand(0x1, 0xFF);
 $something = '';
 $array = array(1,2,3);
 
-// Create a funciton that checks if a variable is set or empty, and display "$variable_name is SET|EMPTY"
+//Before the first conditional, unset($nothing). What happens? PHP Notices 
+ //unset($nothing);
+//Create a funciton that checks if a variable is set or empty, and display "$variable_name is SET|EMPTY"
 function set_or_empty($checkvar) {
 	if (!isset($checkvar)){
 		return FALSE;
@@ -55,7 +57,7 @@ foreach ($d_array as $number => $value) {
 
 		
 	else {
-			echo "$d_array\n";
+			echo FALSE . PHP_EOL;
 			}
 }
 
