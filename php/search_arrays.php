@@ -1,7 +1,7 @@
 <?php
 
 //first names
-$premium_users = ['Tina', 'Dana', 'Mike', 'Amy', 'Adam'];
+$premium_users = ['Tina', 'Dana', 'Amy', 'Mike', 'Adam'];
 
 $currently_logged_in = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
 
@@ -18,7 +18,7 @@ $query = 'Mike';
 $result = array_search($query, $premium_users);
 
 if ($result) {
-    echo "$premium_users[$result] is TRUE";
+    echo "$premium_users[$result] is a premium user";
 
 	} else {
     		echo "$query is FALSE";
