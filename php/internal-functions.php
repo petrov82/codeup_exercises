@@ -16,46 +16,46 @@ function set_or_empty($checkvar) {
 }
 // TEST: If var $nothing is set, display '$nothing is SET'
 // TEST: If var $something is set, display '$something is SET'
-if (set_or_empty($something)) {
+if (set_or_empty($nothing)) {
 
-	echo "\$something ({$something}) is a SET\n";
+	echo "\$nothing ({$nothing}) is a SET\n";
 
 } else {
 
-	echo "\$something ({$something}) is not a SET\n";
+	echo "\$nothing ({$nothing}) is not a SET\n";
 }
 // TEST: If var $nothing is empty, display '$nothing is EMPTY'
 // TEST: If var $something is empty, display '$something is EMPTY'
-if (set_or_empty($something)) {
+if (set_or_empty($nothing)) {
 
-	echo "\$something ({$something}) is not EMPTY\n";
+	echo "\$nothing ({$nothing}) is not EMPTY\n";
 
 } else {
-	echo "\$something ({$something}) is EMPTY\n";
+	echo "\$nothing ({$nothing}) is EMPTY\n";
 }
 
 // Serialize the array $array, and output the results
 // $array = array(1,2,3,4,5,6,7,8,9,0);
 
-$serialized = serialize($array);
+$s_array = serialize($array);
 
-echo $serialized  . PHP_EOL;
+echo $s_array  . PHP_EOL;
 // Unserialize the array $array, and output the results
-$deser = unserialize($serialized);
+$d_array = unserialize($s_array);
 
-var_dump($deser);
-print_r($deser);
-foreach ($deser as $key => $value) {
+var_dump($d_array);
+print_r($d_array);
+foreach ($d_array as $number => $value) {
 	
-	if (is_array($thing)) {
-		foreach ($thing as $number) {
-			echo "$number\n";
+	if (is_array($d_array)) {
+		foreach ($d_array as $number) {
+			echo "[{$number}] $value\n";
 		}
 	}
 
 		
 	else {
-			echo "$thing\n";
+			echo "$d_array\n";
 			}
 }
 
