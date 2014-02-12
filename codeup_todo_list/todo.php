@@ -116,11 +116,15 @@ do {
 
             if ($sort_command == 'A') {
                      
-                sort($items)
+                sort($items);
+
+            } elseif ($sort_command == 'Z') {
+
+                rsort($items);
             }
         }
             
-}
+
 
     
     // elseif ($input == 'S') {
