@@ -58,7 +58,7 @@ foreach ($books as $title => $book) {
 	echo '*' . PHP_EOL;
 	//}
 
-	// echo $title . "\n";
+	
 	
 }
 ?>

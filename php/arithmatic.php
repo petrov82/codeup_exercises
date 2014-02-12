@@ -34,6 +34,7 @@ function divide_by_zero($a, $b) {
 		var_dump($a, $b);
 
 	} else {
+
 		
 		return TRUE;
 	}
