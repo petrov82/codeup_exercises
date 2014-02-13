@@ -155,7 +155,7 @@ do {
 
         } elseif ($remove_first == 'N') {
 
-            echo "Ok, I'll hold onto it a little longer.";
+            echo "Ok, I'll hold onto it a little longer." . PHP_EOL;
         }
     }
 
@@ -170,9 +170,9 @@ do {
                  
             array_pop($items);
 
-        } elseif ($remove_first == 'N') {
+        } elseif ($remove_last == 'N') {
 
-            echo "Ok, I'll hold onto it a little longer.";
+            echo "Ok, I'll hold onto it a little longer." . PHP_EOL;
 
         }
 
