@@ -2,14 +2,6 @@
 
 // Create array to hold list of todo items
 
-// After each exercise item, commit and push changes to your GitHub repository.
-
-// Update the code to allow upper and lowercase inputs from user for all menu items. Test adding, removing, and quiting.
-
-// Update the program to start numbering the list with 1 instead of 0. Make sure remove still works as expected.
-
-// Create array to hold list of todo items
-
 // $filename = todo.txt
 
 $items = array();
@@ -178,9 +170,6 @@ do {
 
     }
             
-
-
-    
     // elseif ($input == 'S') {
 
     //     write_file($content);
