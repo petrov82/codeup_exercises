@@ -75,7 +75,7 @@ function get_input($upper = FALSE) {
        return strtoupper($input);
     
     } else {
-        return $input;
+        return ucfirst($input);
     }
 
     // Return filtered STDIN input
@@ -98,7 +98,21 @@ do {
         // Ask for entry
         echo 'Enter item: ';
         // Add entry to list array
-        $items[] = get_input();
+        $new_item = get_input();
+
+            echo "Shall we add this to the (B)eginning or the e(N)d of the list?: ";
+
+            $beg_or_end = get_input(TRUE);
+
+                if ($beg_or_end == 'B') {
+                     
+                    array_unshift($items, $new_item);
+
+                } elseif ($beg_or_end == 'N') {
+
+                    array_push($items, $new_item);
+
+                }
 
     } elseif ($input == 'R') {
         // Remove which item?
@@ -108,7 +122,7 @@ do {
             $key--;
         // Remove from array
         unset($items[$key]);
-        //move all items in list to lower empty keys
+        // move all items in list to lower empty keys
         $items = array_values($items);
 
     } elseif ($input == 'SO') {
@@ -117,15 +131,52 @@ do {
 
          $sort_command = get_input(TRUE);
 
-            if ($sort_command == 'A') {
-                     
-                sort($items);
 
-            } elseif ($sort_command == 'Z') {
+        if ($sort_command == 'A') {
+                 
+            sort($items);
 
-                rsort($items);
-            }
+        } elseif ($sort_command == 'Z') {
+
+            rsort($items);
         }
+    }
+
+    elseif ($input == 'F') {
+
+        echo "Are you sure you want to remove the first item, Buddy? (Y/N): ";
+
+         $remove_first = get_input(TRUE);
+
+
+        if ($remove_first == 'Y') {
+                 
+            array_shift($items);
+
+        } elseif ($remove_first == 'N') {
+
+            echo "Ok, I'll hold onto it a little longer.";
+        }
+    }
+
+    elseif ($input == 'L') {
+
+        echo "Are you sure you want to remove the last item, Buddy? (Y/N): ";
+
+         $remove_last = get_input(TRUE);
+
+
+        if ($remove_last == 'Y') {
+                 
+            array_pop($items);
+
+        } elseif ($remove_first == 'N') {
+
+            echo "Ok, I'll hold onto it a little longer.";
+
+        }
+
+    }
             
 
 

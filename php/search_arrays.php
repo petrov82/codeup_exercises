@@ -9,7 +9,12 @@ $currently_logged_in = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
 // Function to search within an array
 function IsInArray($array, $value) {
 
-	return in_array($value, $array);
+	foreach ($users as $user) {
+		$result = array_search($value, $array);
+		# code...
+	}
+
+	
 }
 
 
@@ -22,7 +27,7 @@ function compareArray($array1, $array2) {
 
 $query = 'BOB';
 
-$result = array_search($query, $premium_users);
+$result = IsInArray($query, $premium_users);
 
 if ($result) {
     echo "$premium_users[$result] is a premium user" . PHP_EOL;
