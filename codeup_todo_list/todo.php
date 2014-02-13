@@ -46,6 +46,7 @@ $items = array();
 // List array items formatted for CLI
 // Iterate through list items
 function list_items($assignment) {
+
     $list = '';
  
     foreach ($assignment as $key => $value) {
@@ -68,11 +69,13 @@ function list_items($assignment) {
 function get_input($upper = FALSE) {
 
    $input =  (trim(fgets(STDIN)));
+
     if ($upper) {
+
        return strtoupper($input);
     
     } else {
-    return $input;
+        return $input;
     }
 
     // Return filtered STDIN input
