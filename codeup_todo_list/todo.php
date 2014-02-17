@@ -2,39 +2,9 @@
 
 // Create array to hold list of todo items
 
-// $filename = todo.txt
 
 $items = array();
 
-//set function to write to $filename
-// function can_write_file($content) {
-
-//         // Let's make sure the file exists and is writable first.
-//     if (is_writable($filename)) {
-
-//         // In our example we're opening $filename in append mode.
-//         // The file pointer is at the bottom of the file hence
-//         // that's where $somecontent will go when we fwrite() it.
-//         if (!$handle = fopen($filename, 'a')) {
-//              return "Cannot open file ($filename)";
-//              exit;
-//         }
-
-//         // Write $somecontent to our opened file.
-//         if (fwrite($handle, $somecontent) === FALSE) {
-//             echo "Cannot write to file ($filename)";
-//             exit;
-//         }
-
-//         echo "Success, wrote ($somecontent) to file ($filename)";
-
-//         fclose($handle);
-
-//     } else {
-//         echo "The file $filename is not writable";
-//         }
-
-// }
 // List array items formatted for CLI
 // Iterate through list items
 function list_items($assignment) {
@@ -73,13 +43,32 @@ function get_input($upper = FALSE) {
     // Return filtered STDIN input
 }
 
+//set function to write to $filename
+function view_file($target_file) {
+
+    $handle = fopen($target_file, "r");
+    $contents = fread($handle, filesize($target_file));
+    $contents_array = explode("\n", $contents);
+    fclose($handle);
+    return $contents_array;
+
+}
+//
+function save_file($target_file, $new_items) {
+
+    $handle = fopen($target_file, 'w');
+    //foreach ($new_items as $new_item) {
+    fwrite($handle, implode("\n", $new_items));
+    //}
+    fclose($handle);
+}
 
 // The loop!
 do { 
     echo list_items($items);
 
     // Show the menu options
-    echo '(N)ew item, (R)emove item, (SO)rt, (Q)uit : ';
+    echo '(N)ew item, (R)emove item, (SO)rt, (V)iew, (C)lear, (SA)ve, (Q)uit : ';
 
     // Get the input from user
     // Use trim() to remove whitespace and newlines
@@ -134,6 +123,55 @@ do {
         }
     }
 
+    elseif ($input == 'V') {
+
+        echo "What file shall we view?: ";
+
+        $filename = get_input(); 
+
+        $items = view_file($filename);
+
+    }
+
+    elseif ($input == 'SA') {
+
+        echo "Are you sure you want to save this file? (Y/N): ";
+
+            $save_items = get_input(TRUE);
+
+
+        if ($save_items == 'Y') {
+
+            echo "What shall we call this?: ";
+
+            $filename = get_input();
+
+
+            if (file_exists($filename)) {
+                echo "Are you sure you want to override this file?: ";
+                $override = get_input(TRUE);
+
+                if ($override == 'Y') {
+                    save_file($filename, $items);
+                } elseif ($save_items == 'N') {
+
+                    echo "Ok." . PHP_EOL;
+
+                }
+            } elseif (file_exists($filename)==FALSE) {
+                save_file($filename, $items);
+                echo "I just saved $filename!" . PHP_EOL;
+            }
+        }
+
+        elseif ($save_items == 'N') {
+            
+            echo "Ok." . PHP_EOL;
+        }
+
+        //$items = save_file($filename, $items);
+    }
+
     elseif ($input == 'F') {
 
         echo "Are you sure you want to remove the first item, Buddy? (Y/N): ";
@@ -169,11 +207,20 @@ do {
         }
 
     }
-            
-    // elseif ($input == 'S') {
 
-    //     write_file($content);
-    // }
+    elseif ($input == 'C') {
+        echo "Dude, You're about to go nuclear...";
+        $nuclear = get_input(TRUE);
+
+        if ($nuclear == 'NUCLEAR') {
+            unset($items);
+            $items = array();
+        } else {
+
+        }
+    }
+            
+
 
 // Exit when input is (Q)uit
 } while ($input != 'Q');
